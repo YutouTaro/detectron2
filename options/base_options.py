@@ -14,7 +14,7 @@ class BaseOptions():
         # currently, some of the arguements are in train_options, they will be moved to base_options when the test_options is completed
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='the directory where all the projects are saved')
         self.parser.add_argument('--name', type=str, default='try', help='name of the project. The folder containing all the weights of the current project')
-        self.parser.add_argument('--gpu_ids', nargs='+', type=int, default=0, help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+        self.parser.add_argument('--gpu_ids', nargs='+', type=int, default=[0], help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
 
         self.initialized = True
 
@@ -67,3 +67,15 @@ class BaseOptions():
             opt_file.write(str1 + '\n')
 
         return self.opt
+
+### leave for config
+# for k in cfg.keys():
+#     print(k.center(30,'='))
+#     if isinstance(cfg[k], dict):
+#         #print(k)
+#         for kk in cfg[k].keys():
+#             print('{}: {}'.format(kk, cfg[k][kk]))
+#     else:
+#         print('{}: {}'.format(k, cfg[k]))
+#     #print('='*10)
+# print('end'.center(30,'='))
